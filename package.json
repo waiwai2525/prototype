@@ -8,7 +8,7 @@
     "preview": "vite preview",
     "tauri:dev": "tauri dev",
     "tairi:build": "tauri build",
-    "eslint": "eslint src",
+    "eslint": "eslint ./src/",
     "eslint:fix": "eslint ./src/ --fix",
     "prettier": "prettier ./",
     "prettier:write": "prettier ./ --write"
