@@ -16,11 +16,11 @@ fn main() {
                     latitude: 35.0,
                     longitude: 135.0 + coordinate_offset,
                 };
-                coordinate_offset += 0.01;
+                coordinate_offset += 0.0001;
                 app_handle
                     .emit_all("update-coordinate", coordinate)
                     .unwrap();
-                std::thread::sleep(std::time::Duration::from_secs(1))
+                std::thread::sleep(std::time::Duration::from_millis(100));
             });
             Ok(())
         })

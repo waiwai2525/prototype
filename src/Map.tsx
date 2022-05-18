@@ -1,15 +1,13 @@
 import { listen, UnlistenFn } from "@tauri-apps/api/event";
 import { useEffect, useState } from "react";
-
-type Coordinate = {
-  latitude: number;
-  longitude: number;
-};
+import Coordinate from "./@types/Coordinate";
+import "leaflet/dist/leaflet.css";
+import Leaflet from "./Leaflet";
 
 function Map() {
   const [coordinate, setCoordinate] = useState<Coordinate>({
-    latitude: 0.0,
-    longitude: 0.0,
+    latitude: 35,
+    longitude: 135,
   });
 
   useEffect(() => {
@@ -28,12 +26,7 @@ function Map() {
     };
   }, []);
 
-  return (
-    <div className="Map">
-      <p>{coordinate.latitude}</p>
-      <p>{coordinate.longitude}</p>
-    </div>
-  );
+  return <Leaflet coordinate={coordinate} />;
 }
 
 export default Map;
