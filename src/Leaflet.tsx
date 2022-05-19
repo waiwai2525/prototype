@@ -9,19 +9,19 @@ type Props = {
 };
 
 function Leaflet(props: Props) {
+  const { coordinate } = props;
+
   const [position, setPosition] = useState<LatLng>(
-    new LatLng(props.coordinate.latitude, props.coordinate.longitude)
+    new LatLng(coordinate.latitude, coordinate.longitude)
   );
   const [positions, setPositions] = useState<LatLng[]>([]);
 
   useEffect(() => {
-    const newPosition = new LatLng(
-      props.coordinate.latitude,
-      props.coordinate.longitude
-    );
+    const newPosition = new LatLng(coordinate.latitude, coordinate.longitude);
     setPosition(newPosition);
     setPositions([...positions, newPosition]);
-  }, [props]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coordinate]);
 
   return (
     <MapContainer
